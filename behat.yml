@@ -2,9 +2,13 @@ default:
     suites:
         application:
             contexts:
-                - FeatureContext:
-                    entityManager: '@doctrine.orm.entity_manager'
+                - FeatureContext
+                - Behat\MinkExtension\Context\MinkContext
     extensions:
         Behat\Symfony2Extension:
             kernel:
                 bootstrap: vendor/autoload.php
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony2: ~
