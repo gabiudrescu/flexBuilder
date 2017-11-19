@@ -1,0 +1,10 @@
+default:
+    suites:
+        application:
+            contexts:
+                - FeatureContext:
+                    entityManager: '@doctrine.orm.entity_manager'
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: vendor/autoload.php
