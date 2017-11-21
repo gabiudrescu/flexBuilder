@@ -23,7 +23,10 @@ class FlexType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Configuration::class
+            'data_class' => Configuration::class,
+            'attr' => [
+                'id' => 'wizard'
+            ]
         ]);
     }
 
