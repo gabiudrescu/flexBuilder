@@ -1,0 +1,18 @@
+AppBundle\Entity\Component:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ComponentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        output:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

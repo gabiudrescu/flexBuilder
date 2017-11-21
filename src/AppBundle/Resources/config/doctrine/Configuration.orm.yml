@@ -1,0 +1,27 @@
+AppBundle\Entity\Configuration:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ConfigurationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    manyToMany:
+        components:
+            targetEntity: AppBundle\Entity\Component
+            joinTable:
+                name: configuration_components
+                joinColumns:
+                    configuration_id:
+                        referencedColumnName: id
+                        onDelete: "CASCADE"
+                inverseJoinColumn:
+                    component_id:
+                        referencedColumnName: id
+    lifecycleCallbacks: {  }

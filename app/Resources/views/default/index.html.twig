@@ -5,5 +5,11 @@
 {% endblock %}
 
 {% block content %}
-    it works<br>
+    {% if form is defined %}
+        {{ form(form) }}
+    {% endif %}
+
+    {% if flex is defined %}
+        composer req {% for element in flex.components %}{{ element|lower }} {% endfor %}
+    {% endif %}
 {% endblock %}

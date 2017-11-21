@@ -2,7 +2,9 @@ default:
     suites:
         application:
             contexts:
-                - FeatureContext
+                - FeatureContext:
+                    - "@doctrine.orm.entity_manager"
+                    - "@AppBundle\\Factory\\ComponentFactory"
                 - Behat\MinkExtension\Context\MinkContext
     extensions:
         Behat\Symfony2Extension:
