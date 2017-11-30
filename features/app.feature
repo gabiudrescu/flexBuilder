@@ -18,3 +18,8 @@ Feature: Flex builder
       | cli | 1 |
     When I press "Generate"
     Then I should see "composer req cli"
+
+  Scenario: If I don't select any component, I will see an error
+    Given I am on the homepage
+    When I press "Generate"
+    Then I should see "Please select at least one component"

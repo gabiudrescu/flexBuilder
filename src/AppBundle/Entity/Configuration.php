@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints\Count;
+
 /**
  * Configuration
  */
@@ -18,6 +20,7 @@ class Configuration
     private $name;
 
     /**
+     * @Count(min = 1, minMessage = "Please select at least one component")
      * @var \Doctrine\Common\Collections\Collection
      */
     private $components;

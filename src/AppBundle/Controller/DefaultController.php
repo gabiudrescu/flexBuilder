@@ -59,8 +59,11 @@ class DefaultController
 
         $form->handleRequest($request);
 
-        if(!$form->isSubmitted() && !$form->isValid())
+        if(!$form->isSubmitted() || !$form->isValid())
         {
+            $error = (string) $form->getErrors(true, false);
+
+            $request->getSession()->getFlashBag()->add('error', sprintf('%s', $error));
             return new RedirectResponse($this->router->generate('homepage'));
         }
 
