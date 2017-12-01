@@ -4,9 +4,9 @@ Feature: Flex builder
 
   Background:
     Given there are the following components:
-      | name         | output |
-      | command line | cli    |
-      | web server   | web    |
+      | name         | output | package         | type      |
+      | command line | cli    | https://packagist.org/packages/symfony/console           | Official  |
+      | web server   | web    | https://packagist.org/packages/symfony/web-server-bundle | Official  |
 
   Scenario: There is a homepage welcoming visitors
     Given I am on the homepage
