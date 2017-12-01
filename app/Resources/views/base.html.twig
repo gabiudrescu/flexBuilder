@@ -8,8 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{% block title %}Cover Template for Bootstrap{% endblock %}</title>
-
+    <title>{% block title %}Template for Bootstrap{% endblock %}</title>
 
     {% block js %}
     {% endblock %}
@@ -26,59 +25,64 @@
 
 <body>
 
-<div class="site-wrapper">
-
-    <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">{% block header %}Cover{% endblock %}</h3>
-                    <nav>
-                        <ul class="nav masthead-nav">
-                            <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
-            <div class="inner cover">
-                    {% block notifications %}
-                        {% for label, messages in app.flashes %}
-                            {% for message in messages %}
-                                {%if label == 'error'%} {% set label = 'danger' %} {%endif%}
-                                <div class="alert alert-{{ label }}">
-                                    {{ message|raw }}
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    {% endblock notifications %}
-                {% block content %}
-                <h1 class="cover-heading">Cover your page.</h1>
-                <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-                <p class="lead">
-                    <a href="#" class="btn btn-lg btn-default">Learn more</a>
-                </p>
-                {% endblock %}
-            </div>
-
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-                </div>
-            </div>
-
-        </div>
-
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="{{ path('homepage') }}">Home</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Symfony Flex Builder</h3>
     </div>
 
-</div>
+    {% block content %}
+    {% block header %}
+    <div class="jumbotron">
+        <h1>Jumbotron heading</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+    </div>
+    {% endblock %}
+
+    {% block main %}
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h4>Subheading</h4>
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+            <h4>Subheading</h4>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+            <h4>Subheading</h4>
+            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+            <h4>Subheading</h4>
+            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+            <h4>Subheading</h4>
+            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+            <h4>Subheading</h4>
+            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block footer_content %}
+    <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+    {% endblock %}
+
+    {% endblock %}
+</div> <!-- /container -->
 
 {% block footer_js %}
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 {% endblock %}

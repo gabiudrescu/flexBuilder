@@ -19,18 +19,43 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#smartwizard').smartWizard({
-                theme: 'arrows'
+                theme: 'arrows',
+                toolbarSettings: {
+                    toolbarExtraButtons: [
+                        $('<button></button>').text('Generate')
+                            .addClass('btn btn-info')
+                    ]
+                }
             });
         });
+
+        $('#wizard').submit(function (event) {
+            if(0 === $('#wizard input[type=checkbox]:checked').length) {
+                event.preventDefault();
+                alert("It's mandatory to choose at least one option for Flex!");
+            }
+        })
     </script>
 
 {% endblock %}
 
 {% block header %}
-    Welcome to Symfony Flex Builder
+    {% block notifications %}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                {%if label == 'error'%} {% set label = 'danger' %} {%endif%}
+                <div class="alert alert-{{ label }}">
+                    {{ message|raw }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock notifications %}
 {% endblock %}
 
-{% block content %}
+{% block main %}
+
+    <div class="row marketing">
+        <div class="col-lg-8 col-lg-offset-2">
 
     {% if form is defined %}
         {{ form_start(form) }}
@@ -50,10 +75,15 @@
                 {% endfor %}
             </div>
         </div>
-        {{ form_end(form) }}
+        <div style="display: none;" id="submitFormButton">
+            {{ form_end(form) }}
+        </div>
     {% endif %}
 
     {% if flex is defined %}
         composer req {% for element in flex.components %}{{ element|lower }} {% endfor %}
     {% endif %}
+    </div>
+    </div>
+
 {% endblock %}

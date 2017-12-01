@@ -37,7 +37,12 @@ class FeatureContext implements Context
     {
         foreach ($table->getColumnsHash() as $item)
         {
-            $this->factory->fromArray($item);
+            if($this->entityManager->getRepository('AppBundle:Component')->findOneBy(['output' => $item['output']])){
+                continue;
+            }
+            $this->entityManager->persist($this->factory->fromArray($item));
         }
+
+        $this->entityManager->flush();
     }
 }
