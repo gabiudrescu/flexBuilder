@@ -15,4 +15,10 @@ AppBundle\Entity\Component:
         output:
             type: string
             length: 255
+        type:
+            type: string
+            length: 255
+        package:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

@@ -62,7 +62,7 @@
         <div id="smartwizard">
             <ul>
                 {% for key, component in form.components %}
-                    <li><a href="#step-{{ key }}">Step {{ key }}<br /><small>{{ component.vars.label }}</small></a></li>
+                    <li><a href="#step-{{ loop.index }}">Step {{ loop.index }}<br /><small>{{ component.vars.label }}</small></a></li>
                 {% endfor %}
             </ul>
 

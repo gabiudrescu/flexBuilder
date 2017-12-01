@@ -85,5 +85,62 @@ class Component
     {
         return $this->getOutput();
     }
-}
+    /**
+     * @var string
+     */
+    private $type;
 
+    /**
+     * @var string
+     */
+    private $package;
+
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Component
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set package
+     *
+     * @param string $package
+     *
+     * @return Component
+     */
+    public function setPackage($package)
+    {
+        $this->package = $package;
+
+        return $this;
+    }
+
+    /**
+     * Get package
+     *
+     * @return string
+     */
+    public function getPackage()
+    {
+        return $this->package;
+    }
+}

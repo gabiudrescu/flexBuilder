@@ -101,4 +101,3 @@ class Configuration
         return $this->components;
     }
 }
-

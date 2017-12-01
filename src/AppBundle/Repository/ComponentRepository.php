@@ -2,6 +2,9 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Component;
+use Webmozart\Assert\Assert;
+
 /**
  * ComponentRepository
  *
@@ -10,4 +13,13 @@ namespace AppBundle\Repository;
  */
 class ComponentRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param Component $object
+     */
+    public function add($object){
+        Assert::isInstanceOf($object, Component::class);
+
+        $this->getEntityManager()->persist($object);
+        $this->getEntityManager()->flush();
+    }
 }
