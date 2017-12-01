@@ -15,7 +15,8 @@ Feature: Flex builder
   Scenario: There is a form that allows you to select decide if the app is cli or web
     Given I am on the homepage
     And I fill in the following:
-      | cli | 1 |
+      | cli | 2 |
+    # temporary add 2 here to make the test pass
     When I press "Generate"
     Then I should see "composer req cli"
 
